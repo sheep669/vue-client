@@ -178,7 +178,11 @@ export default {
     color: black;
     font-weight: 700;
 }
-/deep/ .van-icon {
+/deep/ .van-nav-bar__title {
+    color: black;
+    font-weight: bold;
+}
+/deep/ .van-icon-arrow-left {
     color: black !important;
 }
 .van-card {
