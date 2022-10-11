@@ -1,6 +1,12 @@
 <template>
     <div>
-        <van-nav-bar title="购物车" left-text="返回" left-arrow> </van-nav-bar>
+        <van-nav-bar
+            title="购物车"
+            left-text="返回"
+            left-arrow
+            @click-left="onClickLeft"
+        >
+        </van-nav-bar>
         <van-checkbox-group class="card-goods" v-model="checkedGoods">
             <van-checkbox
                 class="card-goods__item"
@@ -96,6 +102,9 @@ export default {
         },
         onClickEditAddress() {
             this.$toast({ message: "点击了更换地址", position: top });
+        },
+        onClickLeft() {
+            this.$router.go(-1);
         },
     },
 };

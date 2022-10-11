@@ -5,7 +5,13 @@
 -->
 <template>
     <div id="classify">
-        <van-nav-bar title="分类" left-text="返回" left-arrow> </van-nav-bar>
+        <van-nav-bar
+            title="分类"
+            left-text="返回"
+            left-arrow
+            @click-left="onClickLeft"
+        >
+        </van-nav-bar>
         <van-search
             clearable
             v-model="value"
@@ -157,6 +163,9 @@ export default {
     methods: {
         onSearch() {
             console.log("点了分类里的搜索");
+        },
+        onClickLeft() {
+            this.$router.go(-1);
         },
     },
 };

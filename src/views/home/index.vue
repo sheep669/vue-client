@@ -5,8 +5,7 @@
 -->
 <template>
     <div id="shopping-home">
-        <van-nav-bar title="未来优选" left-text="返回" left-arrow>
-        </van-nav-bar>
+        <van-nav-bar title="未来优选"> </van-nav-bar>
         <van-search
             clearable
             v-model="value"
@@ -57,23 +56,8 @@
             </template>
             <template #footer>
                 <van-button round type="info" size="small" color="#fec200"
-                    >加入购物车</van-button
+                    >去拼团</van-button
                 >
-            </template>
-        </van-card>
-        <van-card
-            tag="抢购"
-            price="2.00"
-            desc="你值得拥有"
-            title="纯调网红速食拌面"
-            thumb="https://img01.yzcdn.cn/vant/ipad.jpeg"
-            origin-price="10.00"
-        >
-            <template #tags>
-                <van-tag plain type="danger">火爆</van-tag> &nbsp;
-                <van-tag plain type="danger">买贵必赔</van-tag>
-            </template>
-            <template #footer>
                 <van-button round type="info" size="small" color="#fec200"
                     >加入购物车</van-button
                 >
@@ -93,10 +77,42 @@
             </template>
             <template #footer>
                 <van-button round type="info" size="small" color="#fec200"
+                    >去拼团</van-button
+                >
+                <van-button round type="info" size="small" color="#fec200"
                     >加入购物车</van-button
                 >
             </template>
         </van-card>
+        <van-card
+            tag="抢购"
+            price="2.00"
+            desc="你值得拥有"
+            title="纯调网红速食拌面"
+            thumb="https://img01.yzcdn.cn/vant/ipad.jpeg"
+            origin-price="10.00"
+        >
+            <template #tags>
+                <van-tag plain type="danger">火爆</van-tag> &nbsp;
+                <van-tag plain type="danger">买贵必赔</van-tag>
+            </template>
+            <template #footer>
+                <van-button
+                    round
+                    type="info"
+                    size="small"
+                    color="#fec200"
+                    @click="gotogGroupBuy"
+                    >去拼团</van-button
+                >
+                <van-button round type="info" size="small" color="#fec200"
+                    >加入购物车</van-button
+                >
+            </template>
+        </van-card>
+        <van-action-sheet v-model="show" title="确认订单">
+            <div class="content">填写收货地址</div>
+        </van-action-sheet>
     </div>
 </template>
 <script>
@@ -104,6 +120,8 @@ export default {
     name: "ShoppingHome",
     data() {
         return {
+            show: false,
+            fileList: [],
             value: "",
             images: [
                 "https://img01.yzcdn.cn/vant/apple-1.jpg",
@@ -114,6 +132,9 @@ export default {
     methods: {
         onSearch() {
             console.log("点了搜索");
+        },
+        gotogGroupBuy() {
+            this.show = true;
         },
     },
 };
@@ -142,5 +163,8 @@ export default {
 }
 /deep/ .van-icon-search {
     font-weight: 600;
+}
+.content {
+    padding: 16px 16px 160px;
 }
 </style>

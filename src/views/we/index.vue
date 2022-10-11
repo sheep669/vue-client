@@ -5,7 +5,13 @@
 -->
 <template>
     <div id="shopping-we">
-        <van-nav-bar title="我的" left-text="返回" left-arrow> </van-nav-bar>
+        <van-nav-bar
+            title="我的"
+            left-text="返回"
+            left-arrow
+            @click-left="onClickLeft"
+        >
+        </van-nav-bar>
         <van-card>
             <template #title>
                 <van-image
@@ -57,6 +63,11 @@
 <script>
 export default {
     name: "ShoppingWe",
+    methods: {
+        onClickLeft() {
+            this.$router.go(-1);
+        },
+    },
 };
 </script>
 <style lang='less' scoped>
